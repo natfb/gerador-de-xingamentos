@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de xingamento</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="IMAGES/xingar.ico">
+</head>
+
+<body>
+
+    <div>
+        <nav class="navitens">
+            <ul id="grid">
+                <li class="d git">GitHub</li>
+                
+                    <li class="font-size git_link"><a href="https://github.com/natfb" target="_blank">Link para o repositório</a></li>
+                
+        <ul id="a" class="d atr">Atribuições</ul>
+                        
+                        <li class="font-size l atr_link1"><a href="https://www.flaticon.com/br/icones-gratis/bravo" target="_blank" title="bravo ícones">Bravo ícones criados por Freepik - Flaticon</a></li>
+                        <li class="font-size l atr_link2"><a href="https://www.flaticon.com/free-icons/copy" title="copy icons" target="_blank">Copy icons created by Pixel perfect - Flaticon</a></li>  
+            </ul>       
+        </nav>
+    </div>
+    <div>
+        <p id="titulo">Gerador de xingamentos</p>
+    </div>
+
+    
+    <div class="conteiner2">
+        <p id="label">Nº de xingamentos</p>
+    <input id="spread" class="slidecontainer gerar" type="range" min="1" max="10" value="0" class="slider" >
+    <label for="spread">1</label>
+    <label class="mf">
+    <input type="radio" name="gender" value="male"> 
+        <span class="checkmark"></span><p>Masculino</p>
+    </label>
+    <label class="mf">
+    <input type="radio" name="gender" value="female">
+    <span class="checkmark"></span><p>Feminino</p>
+    </label>
+    <img id="copy" src="IMAGES/copy.png" onmouseout="mouseout()" onmouseover="mouse()" onclick="copyToClipboard('#texto')"><span id="tool" class="tooltiptext notview">Copiar</span></img>
+    <button class="gerar" onclick="clickk()" id="button">Novo xingamento</button>
+    </div>
+    
+    <div class="conteiner">
+    <div id="divtexto">
+    <p id="texto">Clique para gerar um xingamento</p>
+    </div>
+    
+</div>
+<script src="script.js"></script>
+<script type="module" src="script.js"></script>
+<script type="module" src="package.json"></script>
+<script type="module" src="package-lock.json"></script>
+</body>
+</html>
