@@ -24,8 +24,6 @@ body{
     height: 100%;
     min-height: 100%;
     box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: hidden;
     background-color: #1C362C;
 }
 /*----------------menu--------------------------------------------------*/
@@ -350,6 +348,9 @@ label[for=spread]{
     border-radius: 50% 50% 100% 100%;
     margin: 00px 0px 0px 0px;
 }
+footer{
+    visibility: hidden;
+}
 @media (min-width: 1200px) {
     #divtexto{
         max-width: 60%;
@@ -363,7 +364,7 @@ label[for=spread]{
 @media (max-width: 780px) {
     #titulo{
         margin: -6em 0em 0em 0em;
-        
+        width: 80%;
         justify-content: flex-start;
         align-content: flex-start;
         font-size: 1.8em;
@@ -371,11 +372,11 @@ label[for=spread]{
     #titulo::before{
         justify-content: flex-start;
         align-content: flex-start;
-        background-size: 50px;
-        width: 55px;
-        height: 60px;
-        margin: 0px 0 0 15px;
-        transform: translateY(15%);
+        background-size: 100%;
+        min-width: 60px;
+        min-height: 10vh;
+        margin: -60px 0px 0 15px;
+        transform: translateY(40%);
     }
     .conteiner{
         margin-top: 5vh;
@@ -419,7 +420,7 @@ label[for=spread]{
     .mob2{
         display: grid;
         grid-template-columns: 15vw 50vw;
-        grid-template-rows: 2vh 10vh;
+        grid-template-rows: 2vh 15vh;
         margin-top: 25vh;
         justify-content: center;
         align-items: center;
@@ -431,8 +432,9 @@ label[for=spread]{
     #button{
         grid-column: 2;
         grid-row: 2;
-        min-height: 6vh;
-        line-height: 2.5vh;
+        min-height: 8vh;
+        line-height: 2vh;
+        
 
     }
     #copy{
@@ -446,5 +448,31 @@ label[for=spread]{
     .navitens{
         visibility: hidden;
     }
-    
+    body{
+        min-height: 100vh;
+    }
+    footer{
+        visibility: visible;
+        background-color: #555;
+        width: 100%;
+        margin: -50vh 0vh 0vh 0vh;
+        display: inline-flex;
+    }
+    footer img{
+        width: 50px;
+        height: 50px;
+    }
 }
+
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }

@@ -245,7 +245,9 @@ function gerar2(){
         }     
 }
   
-
+function editar(){
+    
+}
 
 
 
