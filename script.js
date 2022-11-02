@@ -175,19 +175,25 @@ switch(parseInt(slider_spread.value)){
     break;   
 }
 } 
-
-var numram;
-var numram2;
+var teste_ramdom,
+    teste_ramdom2;
+   
 function gerar(){
-    var random;
-    ramdom1 = Math.floor(Math.random() * length1); //posicao aleatoria 
+    do{       ////loop para nao gerar aleatorio igual ao anterior
+        ramdom1 = Math.floor(Math.random() * length1); 
+    }while(ramdom1 == teste_ramdom);
+    teste_ramdom = ramdom1;
+
     igual1[ramdom1] = 0;
     igual1[ramdom1] = 1;
-    numram = ramdom1;
-    ramdom2 = Math.floor(Math.random() * lenght2);
+    
+    do{       ////loop para nao gerar aleatorio igual ao anterior
+        ramdom2 = Math.floor(Math.random() * lenght2); 
+    }while(ramdom2 == teste_ramdom2);
+    teste_ramdom2 = ramdom2;
+    
     igual2[ramdom2] = 0;
     igual2[ramdom2] = 1;
-    numram2 = ramdom2;
 
     text = document.createTextNode(palavra_unica[ramdom1]); //palavra alaeatoria selec
     text1 = document.createTextNode(composta[ramdom2]);
@@ -203,40 +209,37 @@ function gerar(){
             divtexto.innerHTML = `${text1.nodeValue}`;
         }   
 }
+var teste_ramdom_2,
+    teste_ramdom2_2,
+    teste_ramdom3; 
 
 function gerar2(){
-    ramdom1 = Math.floor(Math.random() * length1); //posicao aleatoria 
-    ramdom2 = Math.floor(Math.random() * lenght2);
+    do{       ////loop para nao gerar aleatorio igual ao anterior
+        ramdom1 = Math.floor(Math.random() * length1); 
+    }while(ramdom1 == teste_ramdom_2);
+    teste_ramdom_2 = ramdom1;
+
+    igual1[ramdom1] = 0;
+    igual1[ramdom1] = 1;
+    
+    do{       ////loop para nao gerar aleatorio igual ao anterior
+        ramdom2 = Math.floor(Math.random() * lenght2); 
+    }while(ramdom2 == teste_ramdom2_2);
+    teste_ramdom2_2 = ramdom2;
+
     ramdom3 = Math.floor(Math.random() * lenght3);
-        let ramdomsw = 0;
-        ramdomsw = Math.floor(Math.random() * 3) + 1;
-        if(ramdomsw == 1){
-            if(igual1[numram] == 1){
-                console.log("teste p ver se é igual 1")
-                while(ramdom1 == numram){
-                    console.log('entrou no while 1')
-                    ramdom1 = Math.floor(Math.random() * length1); 
-                    
-                };
-                divtexto.innerHTML +=` ${text.nodeValue}`;
-                console.log(`gerar 2${ramdom1} ${palavra_unica[ramdom1]}`)
-            }else{
-              
-                divtexto.innerHTML +=` ${text.nodeValue}`; 
-            }   
+    
+    text = document.createTextNode(palavra_unica[ramdom1]); //palavra alaeatoria selec
+    text1 = document.createTextNode(composta[ramdom2]);
+    text2 = document.createTextNode(complemento[ramdom3]);
+
+    let ramdomsw = 0;
+    ramdomsw = Math.floor(Math.random() * 3) + 1;
+        if(ramdomsw == 1 && igual1[ramdomsw]){
+            divtexto.innerHTML +=` ${text.nodeValue}`;
+            console.log(`gerar 2${ramdom1} ${palavra_unica[ramdom1]}`)  
         }else if(ramdomsw == 2){
-            if(igual2[numram2] == 1){
-                console.log("teste p ver se é igual 2")
-                while(ramdom2 == numram2){
-                    console.log('entrou no while 2')
-                    ramdom2 = Math.floor(Math.random() * lenght2);
-                     
-                }
-                divtexto.innerHTML +=` ${text1.nodeValue}`;
-            }else{
-                
-                divtexto.innerHTML +=  ` ${text1.nodeValue}`; 
-            }  
+            divtexto.innerHTML += ` ${text1.nodeValue}`;    
         }else if(ramdomsw == 3){
             divtexto.innerHTML +=  ` ${text2.nodeValue}`;    
         }     
