@@ -173,7 +173,7 @@ ul#grid{
     margin: 0 auto;
     width: clamp(55%, 100% - 25vw,95% ) ;
     min-height: 100px;
-    border: 4px solid rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
     color: #fff; 
     font-family: 'Raleway', sans-serif;
@@ -220,7 +220,7 @@ ul#grid{
     width: 15px; /* Set a specific slider handle width */
     height: 15px; /* Slider handle height */
     background: #B9CD04; /* Green background */
-    border-radius: 30px;
+    border-radius: 0px;
     cursor: pointer; /* Cursor on hover */
 }
 .slidecontainer:hover {
@@ -244,7 +244,7 @@ ul#grid{
     text-align: center;
     line-height: 50%;
 
-    border: 3px solid #AAD127;
+    border: 0px solid #AAD127;
     border-radius: 5px;
     background: #FAFF3B;
     color: rgb(88, 88, 88);
@@ -310,6 +310,7 @@ width:fit-content;
 }
 /*-------------------------------------*/
 .mf{
+    font-family: 'Raleway', sans-serif;;
     display: inline-block;
     grid-row: 2;
     cursor: pointer;
@@ -425,7 +426,7 @@ hr{
         position: relative;
         display: grid;
         grid-template-columns: 15vw 50vw;
-        grid-template-rows: 2vh 15vh;
+        grid-template-rows: 1vh 10vh;
         margin-top: 25vh;
         justify-content: center;
         align-items: center;
@@ -511,7 +512,7 @@ hr{
     hr{
         visibility: visible;
         margin-top: 30vh;
-        border: 1px solid white;
+        border: 0.5px solid white;
         border-color: #AAD127;
     }
 }
