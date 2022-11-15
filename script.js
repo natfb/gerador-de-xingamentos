@@ -96,8 +96,8 @@ var complemento = ["do caralho", "do demonio"]
 
 var length1 = palavra_unica.length ;
 
-var lenght2 = composta.length;
-var lenght3 = complemento.length ;
+var length2 = composta.length;
+var length3 = complemento.length ;
 
 var ramdom1; //posicao aleatoria
 var ramdom2; 
@@ -108,12 +108,24 @@ var text; //palavra alaeatoria selec
 var text1; 
 var text2;
 
-var igual1 = [];
-var igual2 = [];
-var igual3 = [];
+var igual1;
+var igual2;
+var igual3;
+
+
+var word1 = [],
+    word2 = [],
+    word3 = [];
 
 function clickk() {
-   
+    console.log("jj")
+    word1.length = length1; 
+    word1.fill(0);
+    word2.length = length2;
+    word2.fill(0);
+    word3.length = length3;
+    word3.fill(0);    
+
 switch(parseInt(slider_spread.value)){
     case 1:
         gerar();
@@ -184,16 +196,15 @@ function gerar(){
     }while(ramdom1 == teste_ramdom);
     teste_ramdom = ramdom1;
 
-    igual1[ramdom1] = 0;
-    igual1[ramdom1] = 1;
+    igual1 = ramdom1;
     
     do{       ////loop para nao gerar aleatorio igual ao anterior
-        ramdom2 = Math.floor(Math.random() * lenght2); 
+        ramdom2 = Math.floor(Math.random() * length2); 
     }while(ramdom2 == teste_ramdom2);
     teste_ramdom2 = ramdom2;
     
-    igual2[ramdom2] = 0;
-    igual2[ramdom2] = 1;
+    igual2 = ramdom2;
+    //igual2 = ramdom2;
 
     text = document.createTextNode(palavra_unica[ramdom1]); //palavra alaeatoria selec
     text1 = document.createTextNode(composta[ramdom2]);
@@ -202,7 +213,8 @@ function gerar(){
         if(ramdomsw == 1){ 
             //text = document.createTextNode(palavra_unica[ramdom1]);
             divtexto.innerHTML = "";
-            divtexto.innerHTML = `${text.nodeValue}`;  //palavra alaeatoria selec
+            divtexto.innerHTML = `${text.nodeValue}`;
+         //palavra alaeatoria selec
             console.log(`gear ${ramdom1} ${palavra_unica[ramdom1]}`)
         }else if(ramdomsw == 2){  
             divtexto.innerHTML = "";
@@ -213,40 +225,98 @@ var teste_ramdom_2,
     teste_ramdom2_2,
     teste_ramdom3; 
 
+function palavra1(){};
+function palavra2(){};
+function palavra3(){}; 
+
+let ramdomsw = 0;
+
 function gerar2(){
     do{       ////loop para nao gerar aleatorio igual ao anterior
         ramdom1 = Math.floor(Math.random() * length1); 
     }while(ramdom1 == teste_ramdom_2);
     teste_ramdom_2 = ramdom1;
-
-    igual1[ramdom1] = 0;
-    igual1[ramdom1] = 1;
     
     do{       ////loop para nao gerar aleatorio igual ao anterior
-        ramdom2 = Math.floor(Math.random() * lenght2); 
+        ramdom2 = Math.floor(Math.random() * length2); 
     }while(ramdom2 == teste_ramdom2_2);
     teste_ramdom2_2 = ramdom2;
 
-    ramdom3 = Math.floor(Math.random() * lenght3);
+    ramdom3 = Math.floor(Math.random() * length3);
     
     text = document.createTextNode(palavra_unica[ramdom1]); //palavra alaeatoria selec
     text1 = document.createTextNode(composta[ramdom2]);
     text2 = document.createTextNode(complemento[ramdom3]);
 
-    let ramdomsw = 0;
+    
     ramdomsw = Math.floor(Math.random() * 3) + 1;
-        if(ramdomsw == 1 && igual1[ramdomsw]){
+    console.log(`antes do if ${word1[ramdom1]}`)
+        if(ramdomsw == 1 && word1[ramdom1] == 0){      ///para nao repetir palavra
+            console.log(`if word1[r1]: ${word1[ramdom1]} r:${ramdom1} e word1 = 0`);
+            palavra1();
+
+        }else if(ramdomsw == 1 && word1[ramdom1] != 0){
+            console.log("word1 = 1")
+            do{       ////loop para nao gerar aleatorio igual ao anterior
+                ramdom1 = Math.floor(Math.random() * length1); 
+            }while(word1[ramdom1] == 1);
+            
+            if(ramdomsw == 1 && igual1 == ramdom1){
+                do{       ////loop para nao gerar aleatorio igual ao gerar()
+                    ramdom1 = Math.floor(Math.random() * length1); 
+                }while(ramdom1 == igual1);
+                
+                text = document.createTextNode(palavra_unica[ramdom1]);
+                divtexto.innerHTML += ", ";
+                divtexto.innerHTML +=` ${text.nodeValue}`;
+        
+                //word1[ramdom1] = 1;
+                console.log(`gerar 2${ramdom1} ${palavra_unica[ramdom1]}`)  
+            }else if(ramdomsw == 1){
+                divtexto.innerHTML += ", ";
+                divtexto.innerHTML +=` ${text.nodeValue}`;
+                //word1[ramdom1] = 1;
+            }
+
+        }
+
+        else if(ramdomsw == 2 && ramdom2 == igual2){
+            do{       ////loop para nao gerar aleatorio igual ao gerar()
+                ramdom2 = Math.floor(Math.random() * length1); 
+            }while(ramdom2 == igual2);
+            //teste_ramdom_2 = ramdom1;
+            divtexto.innerHTML += ", ";
+            text = document.createTextNode(palavra_unica[ramdom1]);
             divtexto.innerHTML +=` ${text.nodeValue}`;
-            console.log(`gerar 2${ramdom1} ${palavra_unica[ramdom1]}`)  
         }else if(ramdomsw == 2){
-            divtexto.innerHTML += ` ${text1.nodeValue}`;    
-        }else if(ramdomsw == 3){
+            divtexto.innerHTML += ", ";
+            divtexto.innerHTML += ` ${text1.nodeValue}`;
+        }
+        
+        else if(ramdomsw == 3){
             divtexto.innerHTML +=  ` ${text2.nodeValue}`;    
         }     
 }
-  
-function editar(){
-    
+
+function palavra1(){
+    if(ramdomsw == 1 && igual1 == ramdom1){
+        do{       ////loop para nao gerar aleatorio igual ao gerar()
+            ramdom1 = Math.floor(Math.random() * length1); 
+        }while(ramdom1 == igual1);   //gerando outro aleatorio que fode a 
+                                        //checagem
+        
+        text = document.createTextNode(palavra_unica[ramdom1]);
+        divtexto.innerHTML += ", ";
+        divtexto.innerHTML +=` ${text.nodeValue}`;
+
+        word1[ramdom1] = 1;
+        console.log(`f() palavra1 word1: ${word1[ramdom1]} r:${ramdom1}`)  
+    }else if(ramdomsw == 1){
+        divtexto.innerHTML += ", ";
+        divtexto.innerHTML +=` ${text.nodeValue}`;
+        word1[ramdom1] = 1;
+        console.log(`f() palavra1 word1: ${word1[ramdom1]} r:${ramdom1}`)
+    }
 }
 
 

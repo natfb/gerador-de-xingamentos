@@ -516,6 +516,11 @@ hr{
         border-color: #AAD127;
     }
 }
+@media (max-height: 500px){
+    .mob2{
+        margin-top: 150px;
+    }
+}
 .content{
     width: 100vw;
     height: fit-content;
