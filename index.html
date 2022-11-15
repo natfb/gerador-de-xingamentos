@@ -11,6 +11,15 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6058684259590422"
      crossorigin="anonymous"></script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-10LYD2PKGP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-10LYD2PKGP');
+</script>
 
 <body>
     <div id="content">
@@ -39,11 +48,11 @@
         <p id="label">Nº de xingamentos</p>
     <input id="spread" class="slidecontainer gerar" type="range" min="1" max="10" value="0" class="slider" >
     <label for="spread">1</label>
-    <label class="mf">
-    <input type="radio" name="gender" value="male"> 
+    <label class="mf masc">
+    <input class="masc" type="radio" name="gender" value="male"> 
         <span class="checkmark"></span><p>Masculino</p>
     </label>
-    <label class="mf">
+    <label class="mf fem">
     <input type="radio" name="gender" value="female">
     <span class="checkmark"></span><p>Feminino</p>
     </label>  
@@ -56,7 +65,7 @@
     
     <div class="conteiner">
     <div id="divtexto">
-    <p id="texto" contentEditable="true">Clique para gerar um xingamento</p>
+    <p id="texto" contentEditable="true">Clique no botão para gerar um xingamento</p>
     </div>
     
 </div>
@@ -64,7 +73,7 @@
 <footer>
     
     <h3>GitHub</h3>
-    <a target="_blank" href="https://github.com/natfb/gerador-de-xingamentos"><img src="IMAGES/github.png" alt="logo do github" ></a>
+    <a target="_blank" href="https://github.com/natfb/gerador-de-xingamentos"><img class="github" src="IMAGES/github.png" alt="logo do github" ></a>
     <h3 class="credito">Credito das imagens</h3>
     <p><a href="https://www.flaticon.com/br/icones-gratis/bravo" target="_blank" title="bravo ícones">Bravo ícones criados por Freepik - Flaticon</a></p>
     <p><a href="https://www.flaticon.com/free-icons/copy" title="copy icons" target="_blank">Copy icons created by Pixel perfect - Flaticon</a></p>
