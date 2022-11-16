@@ -21,7 +21,7 @@ vermelho
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Nabla&family=Quicksand:wght@300&family=Raleway:wght@300;800&display=swap');
 body{
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     min-height: 100%;
     box-sizing: border-box;
     background-color: #242424;
@@ -62,8 +62,7 @@ ul#grid{
 .git{
     width: 100%;
     text-align: center;
-    grid-column:1;
-    
+    grid-column:1;   
 }
 .atr{
     grid-column:2;
@@ -108,20 +107,21 @@ ul#grid{
     width: 100%;
     border: 1px solid transparent;
     border-radius: 5px;
-    margin-top: 100px;
+    margin-top: 90px;
     grid-column:2;
     grid-row: 2; 
-    transition-delay: 125ms;
+    transition-delay: 225ms;
 }
 .atr_link2{
     width: 99%;
     border: 1px solid transparent;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 10px;
     grid-column:2;
     grid-row: 3;
     background: rgba(73, 67, 67, 0.397);
     transition-delay: 125ms;
+    z-index: 2;
 }
 .atr:hover + li + li, .atr:hover + li, .atr + li:hover + li, .atr + li:hover{
     margin-top: 15px;
@@ -144,6 +144,7 @@ ul#grid{
     font-family: 'Raleway', sans-serif;
     font-size: 2.2em;
     font-weight: 800;
+    display: flex;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -161,7 +162,7 @@ ul#grid{
 /*-----conteiner da caixa do texto------------------------------*/
 .conteiner{
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     text-align: center; 
     align-items: center; 
     margin: 10px 0px 0px 0px;
@@ -353,6 +354,7 @@ label[for=spread]{
 }
 footer{
     visibility: hidden;
+    height: 1px;
 }
 hr{
     visibility: hidden;
@@ -370,26 +372,27 @@ hr{
         grid-template-columns: 16% 14% 14% 14% 13% 18%;
     }
 }
-@media (max-width: 780px) {
+@media (max-width: 830px) {
     #titulo{
-        margin: -6em 0em 0em 0em;
+        margin: -6em 0em 0em 0px;
         width: 80%;
+        display: flex;
         justify-content: flex-start;
         align-content: flex-start;
         font-size: 1.8em;
-        display: inline-flex;
     }
     #titulo::before{
+        display: flex;
         justify-content: flex-start;
         align-content: flex-start;
         background-size: 100%;
         min-width: 60px;
         min-height: 10vh;
-        margin: -60px 0px 0 15px;
+        margin: -60px 0px 0 0px;
         transform: translateY(40%);
     }
     .conteiner{
-        margin-top: 5vh;
+        margin-top: 15vh;
     }
     .conteiner2{
         display: block;
@@ -397,7 +400,7 @@ hr{
     .mob{
         display: grid;
         grid-template-columns: 5% 38% 38% 5%;
-        grid-template-rows: 8vh 8vh;
+        grid-template-rows: 8vh 8vh 8vh;
         justify-content: center;
         align-items: center;
         justify-items: center;
@@ -411,28 +414,31 @@ hr{
         font-size: 1em;
     }
     .fem{
+        margin-left: -10px;
         grid-column: 2;
         font-size: 0.9em;
+        grid-row: 3;
     }
     .masc{
+        margin-left: -10px;
         grid-column: 3;
         font-size: 0.9em;
+        grid-row: 3;
     }
     span.checkmark{
     width: 18px;
     height: 18px;
     }
     #label{
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row: 1;
+        grid-column: 2;
+        grid-row: 2;
     }
     #spread{
         grid-column: 3;
-        grid-row: 1;
+        grid-row: 2;
     }
     label[for=spread]{
-        grid-column: 4;
+        grid-column: 3;
         grid-row: 1;
         background-color: #AAD127;
         padding: 5px;
@@ -475,7 +481,10 @@ hr{
         margin: 0;
         padding: 0;
         max-width: 100%;
-        min-height: 80vh;
+        max-height: 100vh;
+    }
+    html{
+        max-height: 100vh;
     }
     body::-webkit-scrollbar {
         display: none;
@@ -544,10 +553,10 @@ hr{
         margin-top: 70px;
     }
 }
-.content{
+#content{
     width: 100vw;
     height: fit-content;
-    max-height: 100%;
+    max-height: 50vh;
     box-sizing: border-box;
 }
 
