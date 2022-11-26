@@ -3,13 +3,13 @@ const menu = document.getElementById('a');
 const atr1 = document.getElementsByClassName('l');
 //const atr2 = document.getElementsByClassName('atr_link2')
 menu.addEventListener('mouseover', function(){
-    console.log('gm')
+    
     for (let x=0 ; x < atr1.length ; x++ ) {
         atr1[x].classList.add('atrhover');
      }
 })
 const atr2 = document.getElementById('atr2')
-console.log(atr2)
+
 atr2.addEventListener('mouseover', function(){
     atr1[0].classList.add('viewnav');
     atr2.classList.add('viewnav');
@@ -72,6 +72,20 @@ var complemento = ["do caralho", "do demônio", "do capeta", "da desgraça", "do
 "vai se fuder", "vai tomar no cu", "vai a merda", 
 "vai pra puta que te pariu",]
 
+/////feminino
+
+var puf = "idiota animal vagabunda ignorante imbecil cínica desengonçada fedelha caloteira canalha mentecapta energúmena bostolona burra chata lambisgoia bostinha verme ameba salafrária pilantra"
+var palavra_unica_fem = puf.split(' ');
+
+var composta_fem = ["filha da puta", "cadela sarnenta", "pé no saco", "pau no cu", "filha da mãe",
+ "animal de teta", "você tem um QI de 5 dígitos e todos eles são zero",
+ "cara de cu à paisana", "desmancha prazeres", "empaca foda"]
+
+var complemento_fem = ["do caralho", "do demônio", "do capeta", "da desgraça", "do cacete", 
+"sem vergonha", "fudida", "desgraçada", "de merda", "de bosta", 
+"vai se fuder", "vai tomar no cu", "vai a merda", 
+"vai pra puta que te pariu",]
+
 var length1 = palavra_unica.length ;
 
 var length2 = composta.length;
@@ -94,6 +108,21 @@ var igual3;
 var word1 = [],
     word2 = [],
     word3 = [];
+
+    ////desidir se e fem ou masc
+    var gen = document.getElementsByClassName('checkmark');
+    var fem;
+    var masc;
+    gen[0].addEventListener('click', function(){
+        fem = 0;
+        masc = 1;
+    })
+    gen[1].addEventListener('click', function(){
+        fem = 1;
+        masc = 0; 
+        console.log("minhabundinha")
+    })
+
 
 function clickk() {
     console.log("jj")
@@ -167,7 +196,19 @@ switch(parseInt(slider_spread.value)){
 } 
 var teste_ramdom,
     teste_ramdom2;
-   
+ 
+
+function gene(){
+    if(fem == 1){
+        text = document.createTextNode(palavra_unica_fem[ramdom1]); //palavra alaeatoria selec
+        text1 = document.createTextNode(composta_fem[ramdom2]);
+        text2 = document.createTextNode(complemento_fem[ramdom3]);
+    }else{
+        text = document.createTextNode(palavra_unica[ramdom1]); //palavra alaeatoria selec
+        text1 = document.createTextNode(composta[ramdom2]);
+        text2 = document.createTextNode(complemento_fem[ramdom3]);
+    }
+}    
 function gerar(){
     do{       ////loop para nao gerar aleatorio igual ao anterior
         ramdom1 = Math.floor(Math.random() * length1); 
@@ -184,18 +225,20 @@ function gerar(){
     igual2 = ramdom2;
     //igual2 = ramdom2;
 
-    text = document.createTextNode(palavra_unica[ramdom1]); //palavra alaeatoria selec
-    text1 = document.createTextNode(composta[ramdom2]);
+    gene();
 
     let ramdomsw = Math.floor(Math.random() * 2) + 1;
         if(ramdomsw == 1){ 
             //text = document.createTextNode(palavra_unica[ramdom1]);
             divtexto.innerHTML = "";
+            gene();
             divtexto.innerHTML = `${text.nodeValue.toUpperCase()}`;
          //palavra alaeatoria selec
             console.log(`gear ${ramdom1} ${palavra_unica[ramdom1]}`)
         }else if(ramdomsw == 2){  
+            
             divtexto.innerHTML = "";
+            gene();
             divtexto.innerHTML = `${text1.nodeValue.toUpperCase()}`;
         }   
 }
@@ -226,9 +269,7 @@ function gerar2(){
 
 ///////////////////////////////////////////////////////////////////
     
-    text = document.createTextNode(palavra_unica[ramdom1]); //palavra alaeatoria selec
-    text1 = document.createTextNode(composta[ramdom2]);
-    text2 = document.createTextNode(complemento[ramdom3]);
+    gene();
 
     
     do{       ////loop para nao gerar aleatorio igual ao anterior
@@ -254,8 +295,9 @@ function gerar2(){
                     ramdom1 = Math.floor(Math.random() * length1); 
                 }while(ramdom1 == igual1);
                 
-                text = document.createTextNode(palavra_unica[ramdom1]);
+                
                 divtexto.innerHTML += ", ";
+                gene();
                 divtexto.innerHTML +=` ${text.nodeValue.toUpperCase()}`;
                 console.log('aqui')
                 
@@ -264,7 +306,7 @@ function gerar2(){
             }else if(ramdomsw == 1){
                 console.log('ou entra aqui')
                 divtexto.innerHTML += ", ";
-                text = document.createTextNode(palavra_unica[ramdom1]);
+                gene();
                 divtexto.innerHTML +=` ${text.nodeValue.toUpperCase()}`;
                 //console.log(`print word = 1 | r: ${ramdom1} word1=${word1[ramdom1]}`)  
                 word1[ramdom1] = 1;
@@ -292,14 +334,14 @@ function gerar2(){
                 }while(ramdom2 == igual2);
                 //teste_ramdom_2 = ramdom1;
                 divtexto.innerHTML += ", ";
-                text1 = document.createTextNode(composta[ramdom2]);
+                gene();
                 divtexto.innerHTML +=` ${text1.nodeValue.toUpperCase()}`;
                 console.log(`print w2!=0 word2: ${word2[ramdom2]} r:${ramdom2}`)
                 word2[ramdom2] = 1; 
                 console.log('aqui')
             }else if(ramdomsw == 2){
                 divtexto.innerHTML += ", ";
-                text1 = document.createTextNode(composta[ramdom2]);
+                gene();
                 divtexto.innerHTML += ` ${text1.nodeValue.toUpperCase()}`;
                 console.log(`print w2!=0 word2: ${word2[ramdom2]} r:${ramdom2}`)
                 word2[ramdom2] = 1;
@@ -312,7 +354,7 @@ function gerar2(){
             }while(word3[ramdom3] == 1);
             console.log('aqui')
         }else if(ramdomsw == 3){
-            text2 = document.createTextNode(complemento[ramdom3]);
+            gene();
             divtexto.innerHTML +=  ` ${text2.nodeValue.toUpperCase()}`;  
             word3[ramdom3] = 1;  
             console.log('aqui')
@@ -328,7 +370,7 @@ function palavra1(){
         }while(ramdom1 == igual1 || word1[ramdom1] == 1);   //gerando outro aleatorio que fode a 
         console.log("fora do loop")                            //checagem
         
-        text = document.createTextNode(palavra_unica[ramdom1]);
+        gene();
         divtexto.innerHTML += ", ";
         divtexto.innerHTML +=` ${text.nodeValue.toUpperCase()}`;
         console.log('aqui')
@@ -338,36 +380,36 @@ function palavra1(){
     }else if(ramdomsw == 1){
         divtexto.innerHTML += ", ";
         divtexto.innerHTML +=` ${text.nodeValue.toUpperCase()}`;
-        let wtf = ramdom1;
+        
         console.log("coisa bugada " + word1[wtf])
         word1[ramdom1] = 1;
-        console.log('aqui')
+       
         
     }
 }
 
 function palavra2(){
-    console.log('aqui')
+    
     if(ramdomsw == 2 && ramdom2 == igual2){
         do{       ////loop para nao gerar aleatorio igual ao gerar()
             ramdom2 = Math.floor(Math.random() * length2); 
         }while(ramdom2 == igual2 || word2[ramdom2] == 1);
         //teste_ramdom_2 = ramdom1;
         
-        text1 = document.createTextNode(composta[ramdom2]);
+        gene();
         divtexto.innerHTML += ", ";
         divtexto.innerHTML +=` ${text1.nodeValue.toUpperCase()}`;
 
-        console.log(`print else f()palavra2 word2: ${word2[ramdom2]} r:${ramdom2}`)
+        
         word2[ramdom2] = 1;
-        console.log('aqui')
+        
     }else if(ramdomsw == 2){
         divtexto.innerHTML += ", ";
-        text1 = document.createTextNode(composta[ramdom2]);
+        gene();
         divtexto.innerHTML += ` ${text1.nodeValue.toUpperCase()}`;
-        console.log(`print else f()palavra2 else word2: ${word2[ramdom2]} r:${ramdom2}`)
+        
         word2[ramdom2] = 1;
-        console.log('aqui')
+        
     }
 }
 
